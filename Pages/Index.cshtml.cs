@@ -9,9 +9,12 @@ namespace bootcamp_names.Pages
 {
     public class IndexModel : PageModel
     {
+
+        public string Users { get; private set; } = "PageModel in C#";
+
         public void OnGet()
         {
-
+            Users += $"Edmar";
         }
     }
 }
