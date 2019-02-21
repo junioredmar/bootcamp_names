@@ -9,7 +9,13 @@ namespace bootcamp_names
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        [BsonElement("Name")]
-        public string Name { get; set; }
+        [BsonElement("firstName")]
+        public string FirstName { get; set;  }
+        [BsonElement("lastName")]
+        public string LastName { get; set;  }
+        [BsonElement("nationality")]
+        public string Nationality { get; set;  }
+        [BsonElement("age")]
+        public string Age { get; set;  }
     }
 }

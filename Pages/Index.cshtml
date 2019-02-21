@@ -6,13 +6,51 @@
 
 <div class="text-center">
     <h1 class="display-4">Users</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+  
 </div>
+<div id="userList">
+<h2 id="userListTitle">User List</h2>
 
-<h2>Separate page model</h2>
-<p>
+    <ul class="list-group">
     @foreach (var item in Model.Users)
     {
-        <li> @(item.Name) </li>
+        <li><button class="btn btn-danger user-btn" onClick="getUserData('@item.Id', '@item.FirstName', '@item.LastName', '@item.Nationality', '@item.Age')"> @(item.FirstName) @(item.LastName)</button> </li>
+        <break />
+        
+        <break />
     }
-</p>
+    </ul>
+
+</div>
+<div id="userDetails">
+    <p>First name: <span id="firstName"></span><br />
+        Last name: <span id="lastName"></span><br />
+        Nationality: <span id="nationality"></span><br />
+        Age: <span id="age"></span><br />
+    </p>
+</div>
+
+<script>
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"
+    </script>
+
+<script>
+    $(document).ready(function() {
+        $("#userDetails").hide;
+    });
+    function getUserData(userId, FirstName, LastName, Nationality, Age) {
+
+
+  
+            $("#firstName").text(FirstName);
+            $("#lastName").text(LastName);
+            $("#nationality").text(Nationality);
+            $("#age").text(Age);
+            $("#userDetails").css("visibility","visible");
+
+    }
+
+
+</script>

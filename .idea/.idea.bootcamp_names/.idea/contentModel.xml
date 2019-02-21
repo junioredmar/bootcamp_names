@@ -7,6 +7,7 @@
       <e p="appsettings.json" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="bootcamp_names.csproj" t="IncludeRecursive" />
+      <e p="Dockerfile" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp2.2" t="Include">
@@ -36,6 +37,7 @@
       </e>
       <e p="README.md" t="Include" />
       <e p="Startup.cs" t="Include" />
+      <e p="Users.cs" t="Include" />
       <e p="wwwroot" t="Include">
         <e p="css" t="Include">
           <e p="site.css" t="Include" />
