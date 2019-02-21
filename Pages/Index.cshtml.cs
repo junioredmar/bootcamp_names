@@ -28,13 +28,6 @@ namespace bootcamp_names.Pages
             var database = client.GetDatabase("UsersDb");
             _users = database.GetCollection<Users>("Users");
 
-           //  Users userOne = new Users {
-              //  FirstName= "Edmar",
-                //LastName = "Junior"
-                
-             //};
-             //_users.InsertOne(userOne);
-
             List<Users> listResult = new List<Users>();
             
             var iterator = await _users.Find(p => true).ToListAsync();
@@ -49,14 +42,6 @@ namespace bootcamp_names.Pages
                 });
             }
             Users = listResult;
-        }
-        
-        
-        public IActionResult OnGetSelectById(string id)
-        {
-            var data =  _users.Find(id).ToListAsync();
-
-            return new JsonResult(data);
         }
     }
 }
