@@ -27,7 +27,10 @@ namespace bootcamp_names.Pages
             _users = database.GetCollection<Users>("Users");
 
             Users userOne = new Users {
-                Name= "Edmar"
+                FirstName= "Edmar",
+                LastName = "Junior",
+                Nationality = "Brazilian",
+                Age = "29"
             };
             _users.InsertOne(userOne);
         }
