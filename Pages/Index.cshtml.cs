@@ -19,7 +19,7 @@ namespace bootcamp_names.Pages
         {
             _config = config;
         }
-        public string Users { get; private set; } = "PageModel in C#";
+        public List<Users> Users { get; private set; } = new List<Users>();
 
         public async Task OnGet()
         {
@@ -33,12 +33,15 @@ namespace bootcamp_names.Pages
             // };
             // _users.InsertOne(userOne);
 
-            string myName = "Test";           
+            List<Users> listResult = new List<Users>();
+            
             var iterator = await _users.Find(p => true).ToListAsync();
             foreach(var user in iterator){
-                myName = user.Name;
+                listResult.Add(new Users {
+                     Name = user.Name
+                });
             }
-            Users += myName;
+            Users = listResult;
         }
     }
 }

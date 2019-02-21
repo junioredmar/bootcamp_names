@@ -11,5 +11,8 @@
 
 <h2>Separate page model</h2>
 <p>
-    @Model.Users
+    @foreach (var item in Model.Users)
+    {
+        <li> @(item.Name) </li>
+    }
 </p>
