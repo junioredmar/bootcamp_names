@@ -28,20 +28,35 @@ namespace bootcamp_names.Pages
             var database = client.GetDatabase("UsersDb");
             _users = database.GetCollection<Users>("Users");
 
-            // Users userOne = new Users {
-            //     Name= "Edmar"
-            // };
-            // _users.InsertOne(userOne);
+           //  Users userOne = new Users {
+              //  FirstName= "Edmar",
+                //LastName = "Junior"
+                
+             //};
+             //_users.InsertOne(userOne);
 
             List<Users> listResult = new List<Users>();
             
             var iterator = await _users.Find(p => true).ToListAsync();
             foreach(var user in iterator){
                 listResult.Add(new Users {
-                     Name = user.Name
+                     FirstName = user.FirstName,
+                     LastName = user.LastName,
+                     Nationality = user.Nationality,
+                     Age = user.Age,
+                     Id = user.Id
+                         
                 });
             }
             Users = listResult;
+        }
+        
+        
+        public IActionResult OnGetSelectById(string id)
+        {
+            var data =  _users.Find(id).ToListAsync();
+
+            return new JsonResult(data);
         }
     }
 }
